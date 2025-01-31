@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registro de Ordeño</title>
+</head>
+<body>
+<form th:action="@{/registrar-ordenio}" method="post">
+    <input type="text" th:field="${ordenio.tipoOrdenio}" placeholder="Tipo de Ordeño" required>
+    <input type="date" th:field="${ordenio.fechaOrdenio}" required>
+    <input type="time" th:field="${ordenio.horaOrdenio}" required>
+    <input type="number" name="idGanado" placeholder="ID Ganado" required>
+    <input type="number" name="idPersonal" placeholder="ID Personal" required>
+    <button type="submit">Registrar</button>
+</form>
+</body>
+</html>
