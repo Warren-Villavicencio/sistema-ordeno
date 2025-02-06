@@ -10,4 +10,15 @@ La aplicación que se desarrollo se basa en el diagrama de casos de uso del sist
 Adicionalmente la aplicación fue desplegada en railway.app
 ![image](https://github.com/user-attachments/assets/4968cdf3-0762-43f5-a634-d5682cfc8630)
 
+Guía de instalación y ejecución del proyecto EAUTPL Clonación del repositorio:
+
+Abre tu terminal o línea de comandos.
+Ejecuta el siguiente comando:
+git clone https://github.com/Warren-Villavicencio/sistema-ordeno.git
+Este comando descargará todo el código del proyecto desde GitHub y lo guardará en una nueva carpeta llamada "sistema-ordeno." en tu directorio actual. 
+Intalar IntelliJ IDEA se utilizara como IDE para abrir el proyecto y ejecutarlo de manera local
+Abrir el proyecto sistema-ordeno desde IntelliJ IDE
+selecionar el archivo SistemaOrdenoEstacionAgropecuariaUtplApplication hacer clic derecho y ejecutar 
+luego en el navegador pegar el siguiente enlace: http://localhost:8080/
+Se aparecera una pantalla de bienvenida hacer clic en Menu y luego elegir Registar Ordeño
 
