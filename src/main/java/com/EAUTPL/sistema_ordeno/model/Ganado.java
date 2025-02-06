@@ -1,23 +1,30 @@
 package com.EAUTPL.sistema_ordeno.model;
 
+import java.util.ArrayList;
+import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
-
-import java.time.LocalDate;
-
-@Data
-@Entity
-@Table(name = "Ganado")
 public class Ganado {
-    @Id
-    @Column(name = "ID_Ganado")
-    private Integer idGanado;
-    private String nombre;
-    private String raza;
-    private LocalDate fechaNacimiento;
-    private String estadoSalud;
+
+    private List<Ganado> listaGanado = new ArrayList<>();
+
+    public Ganado buscarPorId(Integer id) {
+        return listaGanado.stream()
+                .filter(ganado -> ganado.getIdGanado().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    private Object getIdGanado() {
+        return null;
+    }
+
+    public List<Ganado> listarTodos() {
+        return listaGanado;
+    }
+
+    public void agregarGanado(Ganado ganado) {
+        listaGanado.add(ganado);
+    }
+
+    // Otros métodos para agregar, eliminar, modificar, etc.
 }

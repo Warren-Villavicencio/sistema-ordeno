@@ -1,26 +1,29 @@
 package com.EAUTPL.sistema_ordeno.service;
 
+import com.EAUTPL.sistema_ordeno.memoria.GestionGanadoMemoria;
+import com.EAUTPL.sistema_ordeno.memoria.GestionOrdenioMemoria;
+import com.EAUTPL.sistema_ordeno.memoria.GestionPersonalMemoria;
 import com.EAUTPL.sistema_ordeno.model.Ganado;
-import com.EAUTPL.sistema_ordeno.model.Ordenio;
 import com.EAUTPL.sistema_ordeno.model.Personal;
-import com.EAUTPL.sistema_ordeno.repository.GanadoRepository;
-import com.EAUTPL.sistema_ordeno.repository.OrdenioRepository;
-import com.EAUTPL.sistema_ordeno.repository.PersonalRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import lombok.RequiredArgsConstructor;
+import com.EAUTPL.sistema_ordeno.model.Ordenio; // Importa la clase de entidad
 
 @Service
 @RequiredArgsConstructor
 public class OrdenioService {
-    private final OrdenioRepository ordenioRepository;
-    private final GanadoRepository ganadoRepository;
-    private final PersonalRepository personalRepository;
+
+    private final GestionGanadoMemoria gestionGanadoMemoria;
+    private final GestionOrdenioMemoria gestionOrdenioMemoria;
+    private final GestionPersonalMemoria gestionPersonalMemoria;
 
     public void registrarOrdenio(Ordenio ordenio, Integer idGanado, Integer idPersonal) {
-        Ganado ganado = ganadoRepository.findById(idGanado).orElseThrow();
-        Personal personal = personalRepository.findById(Long.valueOf(idPersonal)).orElseThrow(); // Convertimos el Integer a Long
+        Ganado ganado = gestionGanadoMemoria.buscarPorId(idGanado);
+        Personal personal = gestionPersonalMemoria.buscarPorId(idPersonal);
+
         ordenio.setGanado(ganado);
         ordenio.setPersonal(personal);
-        ordenioRepository.save(ordenio);
+
+        gestionOrdenioMemoria.agregarOrdeño(ordenio);
     }
-    }
+}

@@ -1,20 +1,20 @@
 package com.EAUTPL.sistema_ordeno.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
 
-import jakarta.persistence.*;
-import lombok.Data;
-
-
-@Data
-@Entity
-@Table(name = "Personal")
 public class Personal {
-    @Id
-    @Column(name = "ID_Personal") // Nombre exacto de la columna en la BD
-    private Integer idPersonal; // Tipo: Integer, no Long
-    private String nombrePersonal;
-    private String cargo;
-}
 
-    // Getters y setters
+    private List<Personal> listaPersonal = new ArrayList<>();
+
+    public List<Personal> listarTodos() {
+        return listaPersonal;
+    }
+
+    public void agregarPersonal(Personal personal) {
+        listaPersonal.add(personal);
+    }
+
+    // Otros métodos para agregar, eliminar, modificar, etc.
+}
